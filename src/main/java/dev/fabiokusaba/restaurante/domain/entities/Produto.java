@@ -23,10 +23,10 @@ public class Produto {
     private String nome;
     private String descricao;
     private BigDecimal preco;
-    private boolean disponivel = true;
+    private Boolean disponivel = true;
 
     @Column(name = "tempo_preparo_minutos")
-    private int tempoPreparoMinutos;
+    private Integer tempoPreparoMinutos;
 
     @Column(name = "criado_em")
     private LocalDateTime criadoEm;
