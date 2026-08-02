@@ -7,6 +7,7 @@ import dev.fabiokusaba.restaurante.exception.RegraNegocioException;
 import dev.fabiokusaba.restaurante.repository.PedidoItemRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -39,6 +40,7 @@ public class CozinhaService {
         }
 
         item.setStatus(StatusItemPedido.EM_PREPARO);
+        item.setDataInicioPreparo(LocalDateTime.now());
         pedidoItemRepository.save(item);
 
         return CozinhaItemResponse.fromEntity(item);
@@ -52,6 +54,7 @@ public class CozinhaService {
         }
 
         item.setStatus(StatusItemPedido.PRONTO);
+        item.setDataPronto(LocalDateTime.now());
         pedidoItemRepository.save(item);
 
         return CozinhaItemResponse.fromEntity(item);
@@ -65,6 +68,7 @@ public class CozinhaService {
         }
 
         item.setStatus(StatusItemPedido.ENTREGUE);
+        item.setDataEntrega(LocalDateTime.now());
         pedidoItemRepository.save(item);
 
         return CozinhaItemResponse.fromEntity(item);
